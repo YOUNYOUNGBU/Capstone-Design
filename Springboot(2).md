@@ -1,9 +1,15 @@
-con
+## con
 <pre>
   <code>
-    import java.util.List;
-import Service.TestService;
-import Entity.Member;
+    package com.example.test.controller;
+
+import java.util.List;
+import com.example.test.service.TestService;
+import com.example.test.entity.Member;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/test")
@@ -15,7 +21,7 @@ public class TestController {
     }
 
     @GetMapping
-    public List<Member> getAllMembers() {
+    public List getAllMembers() {
         return testService.getAllMembers();
     }
 
@@ -28,10 +34,10 @@ public class TestController {
   </code>
 </pre>
 
-mem
+## mem
 <pre>
   <code>
-    package Entity;
+   package com.example.test.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -42,10 +48,9 @@ import lombok.Data;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(name = "admin_id", nullable = false)
-    private String adminId;
+    private Long adminId;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -56,17 +61,16 @@ public class Member {
     @Column(name = "password", nullable = false)
     private String password;
 }
-
   </code>
 </pre>
 
-ser
+## ser
 <pre>
   <code>
-    package Service;
+    package com.example.test.service;
 
-import Entity.Member;
-import Repository.MemberRepository;
+import com.example.test.entity.Member;
+import com.example.test.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -78,7 +82,7 @@ public class TestService {
         this.memberRepository = memberRepository;
     }
 
-    public List<Member> getAllMembers() {
+    public List getAllMembers() {
         return memberRepository.findAll();
     }
 
@@ -87,21 +91,22 @@ public class TestService {
     }
 }
 
+
   </code>
 </pre>
 
-rep
+## rep
 <pre>
   <code>
-    package Repository;
+    package com.example.test.repository;
 
-import Entity.Member;
+import com.example.test.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member", Long"> {
     // 추가적인 쿼리 메서드 정의 가능
 }
 
