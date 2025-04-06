@@ -97,3 +97,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
   </code>
 </pre>
+
+## 결과 화면
+
+![image](https://github.com/user-attachments/assets/d83dadaa-0984-4a4d-ad9f-ab4426b6f449)
+
+
