@@ -3,6 +3,7 @@
 
 # 우선 리액트 코드이다.
 ## Login.jsx
+ &lt;p&gt;
  <pre>
      <code>
 import React, { useState } from 'react';
@@ -25,7 +26,7 @@ function Login() {
     };
 
     return (
-  &lt;p&gt;
+ 
         <div className="login-container">
             <h2 className="login-title">로그인</h2>
             <form onSubmit={handleSubmit} className="login-form">
@@ -55,23 +56,21 @@ function Login() {
             </form>
             <button onClick={goToRegister} className="register-link">회원가입</button>
         </div>
-         &lt;/p&gt;
+       
     );
 }
 
 export default Login;
      </code>
  </pre>
-
+&lt;/p&gt;
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/653e2fcd-d484-495d-b994-a40d81ec75c8)
 
 ## Register.jsx
 <pre>
   <code>
-    
-
-    import React, { useState } from 'react';
+  import React, { useState } from 'react';
 import './Register.css';
 
 function Register() {
