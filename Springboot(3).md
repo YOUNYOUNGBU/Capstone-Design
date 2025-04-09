@@ -3,12 +3,8 @@
 
 # 우선 리액트 코드이다.
 ## Login.jsx
-&lt;pre&gt;&lt;code&gt;
-
-
-
-
-
+ <pre>
+     <code>
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; // 스타일 파일 가져오기
@@ -29,7 +25,7 @@ function Login() {
     };
 
     return (
-  
+  &lt;p&gt;
         <div className="login-container">
             <h2 className="login-title">로그인</h2>
             <form onSubmit={handleSubmit} className="login-form">
@@ -59,11 +55,13 @@ function Login() {
             </form>
             <button onClick={goToRegister} className="register-link">회원가입</button>
         </div>
+         &lt;/p&gt;
     );
 }
 
 export default Login;
- &lt;/pre&gt;&lt;/code&gt;
+     </code>
+ </pre>
 
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/653e2fcd-d484-495d-b994-a40d81ec75c8)
@@ -190,6 +188,8 @@ export default Register;
 
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/db1831f7-c06f-422d-a231-b3f30f8a727b)
+
+## 
 
 
 
