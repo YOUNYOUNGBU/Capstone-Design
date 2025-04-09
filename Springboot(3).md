@@ -67,6 +67,8 @@ export default Login;
 ## Register.jsx
 <pre>
   <code>
+    &lt;pre&gt;&lt;code&gt;
+
     import React, { useState } from 'react';
 import './Register.css';
 
@@ -178,12 +180,16 @@ function Register() {
     );
 }
 export default Register;
-
+&lt;/code&gt;&lt;/pre&gt;
   </code>
 </pre>
 
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/db1831f7-c06f-422d-a231-b3f30f8a727b)
+
+
+
+
 
 
 
