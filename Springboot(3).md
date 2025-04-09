@@ -1,9 +1,9 @@
 오늘은 리액트로 로그인 화면, 회원가입 화면을 만든후
 스프링 부트를 이용해서, 회원가입 시 사용자 정보를 데이터베이스에 저장하는 것을 해봤다.
+html코드가 있어서 코드가 이상하게 나온다;;; 리액트 코드는 따로 올려야겠다
 
 # 우선 리액트 코드이다.
 ## Login.jsx
- &lt;p&gt;
  <pre>
      <code>
 import React, { useState } from 'react';
@@ -63,7 +63,6 @@ function Login() {
 export default Login;
      </code>
  </pre>
-&lt;/p&gt;
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/653e2fcd-d484-495d-b994-a40d81ec75c8)
 
