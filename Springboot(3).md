@@ -4,7 +4,8 @@
 # 우선 리액트 코드이다.
 ## Login.jsx
 &lt;pre&gt;&lt;code&gt;
-    import React, { useState } from 'react';
+
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; // 스타일 파일 가져오기
 
