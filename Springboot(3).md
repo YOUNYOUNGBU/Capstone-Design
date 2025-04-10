@@ -2,7 +2,7 @@
 스프링 부트를 이용해서, 회원가입 시 사용자 정보를 데이터베이스에 저장하는 것을 해봤다.
 html코드가 있어서 코드가 이상하게 나온다;;; 리액트 코드는 따로 올려야겠다
 
-# 우선 리액트 코드이다.
+# (1) 우선 리액트 코드이다.
 ## Login.jsx
  <pre>
      <code>
@@ -187,7 +187,7 @@ export default Register;
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/db1831f7-c06f-422d-a231-b3f30f8a727b)
 
-# Spring boot 코드이다.
+# (2) Spring boot 코드이다.
 ## WebConfig.java
 <pre>
  <code>
