@@ -187,7 +187,114 @@ export default Register;
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/db1831f7-c06f-422d-a231-b3f30f8a727b)
 
-## 
+# Spring boot 코드이다.
+## WebConfig.java
+<pre>
+ <code>
+  package com.example.myloginappboot.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedHeaders("*");
+            }
+        };
+    }
+}
+ </code>
+</pre>
+
+## User.java
+<pre>
+ <code>
+  package com.example.myloginappboot.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Entity
+@Data
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long user_Id;
+
+    private String name; // React의 username 데이터와 매핑
+    private String email;
+    private String password;
+    @Column(name = "phone_number", nullable = false) // nullable=false로 설정
+    private String phoneNumber;
+}
+ </code>
+</pre>
+
+## UserController.java
+<pre>
+ <code>
+  package com.example.myloginappboot.controller;
+
+import com.example.myloginappboot.entity.User;
+import com.example.myloginappboot.service.UserService; // UserService import 필요
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody User user) {
+        System.out.println("받은 데이터: " + user); // 요청 데이터 확인
+        userService.saveUser(user); // 데이터 저장
+        return ResponseEntity.ok(Map.of("message", "회원가입 성공!"));
+    }
+
+}
+ </code>
+</pre>
+
+## UserService
+<pre>
+ <code>
+  package com.example.myloginappboot.service;
+
+import com.example.myloginappboot.entity.User;
+import com.example.myloginappboot.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
+}
+ </code>
+</pre>
 
 
 
