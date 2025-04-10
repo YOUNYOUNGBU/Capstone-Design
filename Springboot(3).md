@@ -3,7 +3,7 @@
 html코드가 있어서 코드가 이상하게 나온다;;; 리액트 코드는 따로 올려야겠다
 
 # (1) 우선 리액트 코드이다.
-## Login.jsx
+## 1. Login.jsx
  <pre>
      <code>
 import React, { useState } from 'react';
@@ -66,7 +66,7 @@ export default Login;
 ## 결과 화면
 ![image](https://github.com/user-attachments/assets/653e2fcd-d484-495d-b994-a40d81ec75c8)
 
-## Register.jsx
+## 2. Register.jsx
 <pre>
   <code>
   import React, { useState } from 'react';
@@ -188,7 +188,7 @@ export default Register;
 ![image](https://github.com/user-attachments/assets/db1831f7-c06f-422d-a231-b3f30f8a727b)
 
 # (2) Spring boot 코드이다.
-## WebConfig.java
+## 1. WebConfig.java
 <pre>
  <code>
   package com.example.myloginappboot.config;
@@ -217,7 +217,7 @@ public class WebConfig implements WebMvcConfigurer {
  </code>
 </pre>
 
-## User.java
+## 2. User.java
 <pre>
  <code>
   package com.example.myloginappboot.entity;
@@ -273,7 +273,7 @@ public class UserController {
  </code>
 </pre>
 
-## UserService
+## 3. UserService
 <pre>
  <code>
   package com.example.myloginappboot.service;
