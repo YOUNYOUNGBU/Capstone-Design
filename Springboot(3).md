@@ -296,7 +296,7 @@ public class UserService {
  </code>
 </pre>
 
-## application.properties
+## 5. application.properties
 <pre>
  <code>
   server.port=8080
@@ -312,7 +312,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
  </code>
 </pre>
 
-## application.yml
+## 6. application.yml
 <pre>
  <code>
   spring:
