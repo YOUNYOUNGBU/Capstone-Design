@@ -242,7 +242,7 @@ public class User {
  </code>
 </pre>
 
-## UserController.java
+## 3. UserController.java
 <pre>
  <code>
   package com.example.myloginappboot.controller;
@@ -273,7 +273,7 @@ public class UserController {
  </code>
 </pre>
 
-## 3. UserService
+## 4. UserService
 <pre>
  <code>
   package com.example.myloginappboot.service;
@@ -296,6 +296,37 @@ public class UserService {
  </code>
 </pre>
 
+## application.properties
+<pre>
+ <code>
+  server.port=8080
+
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/user
+spring.datasource.username= root
+spring.datasource.password= root
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
+
+ </code>
+</pre>
+
+## application.yml
+<pre>
+ <code>
+  spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/user
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MariaDBDialect
+ </code>
+</pre>
 
 
 
