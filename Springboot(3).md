@@ -328,7 +328,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MariaDBDialect
  </code>
 </pre>
 
-## 6. WebConfig
+## 6. WebConfig.java
 <pre>
  <code>
   package com.example.myloginappboot.config;
