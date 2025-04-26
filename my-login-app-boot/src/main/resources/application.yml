@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://193.122.96.203:13306/airbooking
+    username: airbooking
+    password: airbooking
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MariaDBDialect
