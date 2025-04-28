@@ -5,15 +5,21 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @Column(name = "user_id") // ✅ Hibernate가 DB의 실제 컬럼명과 맞추도록 설정
+    private Long id;
 
-    private String name; // React의 username 데이터와 매핑
-    private String email;
-    private String password;
+    @Column(unique = true)
     private String username;
+
+    @Column(unique = true)
+    private String email;
+
+    private String name;
+    private String password;
     private String phoneNumber;
 }
