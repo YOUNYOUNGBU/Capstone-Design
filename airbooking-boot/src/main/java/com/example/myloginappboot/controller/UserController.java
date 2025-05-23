@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:3000") // ✅프론트 주소
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -54,6 +55,7 @@ public class UserController {
                     "message", "로그인 성공!",
                     "name", user.getName(),
                     "username", user.getUsername(),
+                    "email", user.getEmail(), // ✅ 추가
                     "isLoggedIn", true // ✅ 로그인 여부 추가
             ));
 
@@ -63,5 +65,20 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다.", "isLoggedIn", false));
         }
     }
+
+    // ✅ 회원 탈퇴 처리
+    // UserController.java
+    @DeleteMapping("/{username}")
+    public ResponseEntity<?> deleteUser(@PathVariable String username) {
+        try {
+            userService.deleteByUsername(username);
+            return ResponseEntity.ok(Map.of("message", "회원 탈퇴가 완료되었습니다."));
+        } catch (ResponseStatusException ex) {
+            return ResponseEntity.status(ex.getStatusCode()).body(Map.of("message", ex.getReason()));
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
+        }
+    }
+
 
 }
