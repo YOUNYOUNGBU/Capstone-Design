@@ -36,6 +36,7 @@ public class UserController {
             userService.saveUser(user);
             return ResponseEntity.ok(Map.of("message", "회원가입 성공!"));
 
+
         } catch (ResponseStatusException ex) {
             return ResponseEntity.status(ex.getStatusCode()).body(Map.of("message", ex.getReason()));
         } catch (Exception ex) {
