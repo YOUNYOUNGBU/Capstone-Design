@@ -1,0 +1,20 @@
+----다국어 적용 하는 법----
+1. 내가 디스코드 "프론트엔드" 서버에 올린 "i18n" 폴더랑 "locales" 폴더 다운 받아서 react파일 src 폴더 안에다가 넣기.
+
+2. 밑에 이거 두개 다운받기
+npm install react-i18next i18next --legacy-peer-deps
+npm install i18next-browser-languagedetector --legacy-peer-deps 
+
+3. 수정된 파일 ( 수정된 부분은 초록색 체크박스로 표시해뒀음 )
+- Index.js
+- App.js
+- MyPage.jsx
+- MainPage.jsx
+- LoginSignupModal.jsx
+- Header.jsx
+- Footer.jsx
+
+
+
+
+
