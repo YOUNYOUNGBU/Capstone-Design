@@ -1,10 +1,33 @@
 spring:
+  main:
+    lazy-initialization: true
   datasource:
-    url: jdbc:mysql://193.122.96.203:13306/airbooking
+    url: jdbc:mariadb://193.122.96.203:13306/airbooking?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
     username: airbooking
-    password: airbooking
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 1q2w3e4r!!
+    driver-class-name: org.mariadb.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  jackson:
+    time-zone: Asia/Seoul
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dudqn1660@gmail.com
+    password: dkoyxdtufeooivgq
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
