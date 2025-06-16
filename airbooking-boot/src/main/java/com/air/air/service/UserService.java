@@ -96,56 +96,5 @@ public class UserService {
         }
         userRepository.delete(user.get());
     }
-
-    // ✅[아이디(이메일) 찾기]
-    public String findEmailByNameAndPhone(String name, String phoneNumber) {
-        Optional<User> user = userRepository.findByNameAndPhoneNumber(name, phoneNumber);
-        return user.map(User::getEmail).orElse(null);
-    }
-
-    // ✅[비밀번호 재설정 메일 전송]
-    public boolean sendResetPasswordEmail(String email) {
-        Optional<User> userOpt = userRepository.findByEmail(email);
-        if (userOpt.isEmpty()) {
-            return false;
-        }
-
-        String token = UUID.randomUUID().toString();
-        resetTokens.put(token, email);
-
-        // --- 실제 메일 발송 코드 추가 시작 ---
-        try {
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setTo(email);
-            message.setSubject("비밀번호 재설정 안내");
-            message.setText("아래 링크를 클릭해서 비밀번호를 재설정하세요:\n"
-                    + "http://localhost:3000/reset-password?token=" + token);
-
-            mailSender.send(message);
-
-            System.out.println("비밀번호 재설정 메일 발송됨: " + email);
-            System.out.println("비밀번호 재설정 링크: http://localhost:3000/reset-password?token=" + token);
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("메일 발송 실패: " + e.getMessage());
-            return false;
-        }
-    }
-    // ✅ [비밀번호 재설정] (토큰 검증 및 새 비밀번호 저장)
-    public boolean resetPassword(String token, String newPassword) {
-        String email = resetTokens.get(token);
-        if (email == null) {
-            return false; // 유효하지 않은 토큰
-        }
-        Optional<User> userOpt = userRepository.findByEmail(email);
-        if (userOpt.isEmpty()) {
-            return false;
-        }
-        User user = userOpt.get();
-        user.setPassword(newPassword);
-        userRepository.save(user);
-        resetTokens.remove(token);
-        return true;
-    }
 }
+

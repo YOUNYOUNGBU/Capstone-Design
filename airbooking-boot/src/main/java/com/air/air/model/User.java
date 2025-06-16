@@ -20,7 +20,7 @@ public class User {
     private String username;
 
     @Column(unique = true)
-    // 사용자 이메일, 중복 허용하지 않음 (아이디 찾기 등에도 활용 가능)
+    // 사용자 이메일, 중복 허용하지 않음
     private String email;
 
     // 사용자 실명
@@ -31,5 +31,5 @@ public class User {
 
     // 전화번호
     @Column(name = "phone_number") //✅ 추가
-    private String phoneNumber;
+    private String phone;
 }

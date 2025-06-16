@@ -34,8 +34,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
      */
     Optional<User> findByEmail(String email);
 
-    // ✅ 이름+전화번호로 사용자(이메일 찾기용)
-    Optional<User> findByNameAndPhoneNumber(String name, String phoneNumber);
 
     /**
      *  회원 탈퇴 시 사용자 삭제

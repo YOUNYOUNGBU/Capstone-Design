@@ -113,53 +113,5 @@ public class UserController {
         }
     }
 
-    // 🟩✅ [아이디(이메일) 찾기] 추가
-    @PostMapping("/find-id")
-    public ResponseEntity<?> findId(@RequestBody Map<String, String> req) {
-        String name = req.get("name");
-        String phoneNumber = req.get("phoneNumber"); // [☑️] key 이름을 phone → phoneNumber로 수정!
-        try {
-            String email = userService.findEmailByNameAndPhone(name, phoneNumber);
-            if (email != null) {
-                return ResponseEntity.ok(Map.of("email", email));
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "해당 정보로 가입된 계정이 없습니다."));
-            }
-        } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
-        }
-    }
 
-    // 🟩✅ [비밀번호 재설정 링크 발송] 추가
-    @PostMapping("/reset-password-request")
-    public ResponseEntity<?> requestResetPassword(@RequestBody Map<String, String> req) {
-        String email = req.get("email");
-        try {
-            boolean result = userService.sendResetPasswordEmail(email); // 🟩✅ 메일 전송 로직 호출
-            if (result) {
-                return ResponseEntity.ok(Map.of("message", "비밀번호 재설정 링크가 이메일로 전송되었습니다."));
-            } else {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", "해당 이메일로 가입된 계정이 없습니다."));
-            }
-        } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
-        }
-    }
-
-    // 🟩✅ [비밀번호 재설정] 추가
-    @PostMapping("/reset-password")
-    public ResponseEntity<?> resetPassword(@RequestBody Map<String, String> req) {
-        String token = req.get("token");
-        String newPassword = req.get("newPassword");
-        try {
-            boolean result = userService.resetPassword(token, newPassword); // 🟩✅ 토큰 검증 및 비번 변경 로직 호출
-            if (result) {
-                return ResponseEntity.ok(Map.of("message", "비밀번호가 성공적으로 변경되었습니다."));
-            } else {
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", "유효하지 않은 토큰입니다."));
-            }
-        } catch (Exception ex) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message", "서버 오류가 발생했습니다."));
-        }
-    }
 }

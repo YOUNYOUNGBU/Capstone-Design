@@ -1,4 +1,5 @@
 spring:
+  port: 8888
   main:
     lazy-initialization: true
   datasource:
